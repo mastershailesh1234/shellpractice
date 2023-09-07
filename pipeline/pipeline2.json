@@ -25,6 +25,892 @@
 					},
 					"traceLevel": "Fine"
 				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "dataflow2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['body']['results'][0]['apparentTemperature']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['apparentTemperature_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['apparentTemperature']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['apparentTemperature_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['apparentTemperature']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['apparentTemperature_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['ceiling']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['ceiling_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['ceiling']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['ceiling_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['ceiling']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['ceiling_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['cloudCover']"
+								},
+								"sink": {
+									"name": "cloudCover"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['dateTime']"
+								},
+								"sink": {
+									"name": "dateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['dewPoint']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['dewPoint_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['dewPoint']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['dewPoint_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['dewPoint']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['dewPoint_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['hasPrecipitation']"
+								},
+								"sink": {
+									"name": "hasPrecipitation"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['iconCode']"
+								},
+								"sink": {
+									"name": "iconCode"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['isDayTime']"
+								},
+								"sink": {
+									"name": "isDayTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['obstructionsToVisibility']"
+								},
+								"sink": {
+									"name": "obstructionsToVisibility"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['past24HourTemperatureDeparture']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['past24HourTemperatureDeparture_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['past24HourTemperatureDeparture']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['past24HourTemperatureDeparture_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['past24HourTemperatureDeparture']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['past24HourTemperatureDeparture_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['phrase']"
+								},
+								"sink": {
+									"name": "phrase"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past12Hours']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past12Hours_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past12Hours']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past12Hours_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past12Hours']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past12Hours_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past18Hours']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past18Hours_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past18Hours']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past18Hours_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past18Hours']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past18Hours_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past24Hours']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past24Hours_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past24Hours']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past24Hours_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past24Hours']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past24Hours_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past3Hours']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past3Hours_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past3Hours']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past3Hours_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past3Hours']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past3Hours_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past6Hours']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past6Hours_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past6Hours']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past6Hours_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past6Hours']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past6Hours_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past9Hours']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past9Hours_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past9Hours']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past9Hours_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['past9Hours']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_past9Hours_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['pastHour']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_pastHour_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['pastHour']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_pastHour_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['precipitationSummary']['pastHour']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['precipitationSummary_pastHour_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['pressure']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['pressure_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['pressure']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['pressure_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['pressure']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['pressure_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['pressureTendency']['code']"
+								},
+								"sink": {
+									"name": "code"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['pressureTendency']['localizedDescription']"
+								},
+								"sink": {
+									"name": "body_results'][0]['pressureTendency_localizedDescription"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['realFeelTemperature']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['realFeelTemperature_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['realFeelTemperature']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['realFeelTemperature_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['realFeelTemperature']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['realFeelTemperature_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['realFeelTemperatureShade']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['realFeelTemperatureShade_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['realFeelTemperatureShade']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['realFeelTemperatureShade_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['realFeelTemperatureShade']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['realFeelTemperatureShade_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['relativeHumidity']"
+								},
+								"sink": {
+									"name": "relativeHumidity"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperature']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperature_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperature']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperature_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperature']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperature_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past12Hours']['maximum']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past12Hours_maximum_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past12Hours']['maximum']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past12Hours_maximum_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past12Hours']['maximum']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past12Hours_maximum_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past12Hours']['minimum']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past12Hours_minimum_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past12Hours']['minimum']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past12Hours_minimum_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past12Hours']['minimum']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past12Hours_minimum_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past24Hours']['maximum']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past24Hours_maximum_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past24Hours']['maximum']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past24Hours_maximum_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past24Hours']['maximum']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past24Hours_maximum_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past24Hours']['minimum']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past24Hours_minimum_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past24Hours']['minimum']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past24Hours_minimum_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past24Hours']['minimum']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past24Hours_minimum_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past6Hours']['maximum']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past6Hours_maximum_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past6Hours']['maximum']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past6Hours_maximum_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past6Hours']['maximum']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past6Hours_maximum_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past6Hours']['minimum']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past6Hours_minimum_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past6Hours']['minimum']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past6Hours_minimum_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['temperatureSummary']['past6Hours']['minimum']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['temperatureSummary_past6Hours_minimum_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['uvIndex']"
+								},
+								"sink": {
+									"name": "uvIndex"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['uvIndexPhrase']"
+								},
+								"sink": {
+									"name": "uvIndexPhrase"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['visibility']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['visibility_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['visibility']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['visibility_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['visibility']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['visibility_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wetBulbTemperature']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['wetBulbTemperature_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wetBulbTemperature']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['wetBulbTemperature_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wetBulbTemperature']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['wetBulbTemperature_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wind']['direction']['degrees']"
+								},
+								"sink": {
+									"name": "degrees"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wind']['direction']['localizedDescription']"
+								},
+								"sink": {
+									"name": "body_results'][0]['wind_direction_localizedDescription"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wind']['speed']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['wind_speed_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wind']['speed']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['wind_speed_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['wind']['speed']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['wind_speed_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['windChillTemperature']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['windChillTemperature_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['windChillTemperature']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['windChillTemperature_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['windChillTemperature']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['windChillTemperature_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['windGust']['speed']['unit']"
+								},
+								"sink": {
+									"name": "body_results'][0]['windGust_speed_unit"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['windGust']['speed']['unitType']"
+								},
+								"sink": {
+									"name": "body_results'][0]['windGust_speed_unitType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['body']['results'][0]['windGust']['speed']['value']"
+								},
+								"sink": {
+									"name": "body_results'][0]['windGust_speed_value"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['Vary']"
+								},
+								"sink": {
+									"name": "Vary"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['X-MSEdge-Ref']"
+								},
+								"sink": {
+									"name": "X-MSEdge-Ref"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['Transfer-Encoding']"
+								},
+								"sink": {
+									"name": "Transfer-Encoding"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['X-Cache']"
+								},
+								"sink": {
+									"name": "X-Cache"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['Strict-Transport-Security']"
+								},
+								"sink": {
+									"name": "Strict-Transport-Security"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['Expires']"
+								},
+								"sink": {
+									"name": "Expires"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['Cache-Control']"
+								},
+								"sink": {
+									"name": "Cache-Control"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['x-ms-azuremaps-region']"
+								},
+								"sink": {
+									"name": "x-ms-azuremaps-region"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['X-Content-Type-Options']"
+								},
+								"sink": {
+									"name": "X-Content-Type-Options"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['Content-Type']"
+								},
+								"sink": {
+									"name": "Content-Type"
+								}
+							},
+							{
+								"source": {
+									"path": "$['headers']['Date']"
+								},
+								"sink": {
+									"name": "Date"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "jsontocsv",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": [],
