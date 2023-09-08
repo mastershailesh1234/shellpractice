@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "adfsept08shailesh"
 		},
-		"AzureSqlDatabaseSept08_connectionString": {
+		"AzureBlobStorageSept08_connectionString": {
 			"value": ""
 		},
-		"AzureBlobStorageSept08_connectionString": {
+		"AzureSqlDatabaseSept08_connectionString": {
 			"value": ""
 		},
 		"containerUri": {

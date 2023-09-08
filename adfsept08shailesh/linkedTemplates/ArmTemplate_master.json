@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfsept08shailesh"
 		},
-		"AzureSqlDatabaseSept08_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabaseSept08'"
-		},
 		"AzureBlobStorageSept08_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageSept08'"
+		},
+		"AzureSqlDatabaseSept08_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabaseSept08'"
 		},
 		"containerUri": {
 			"type": "string",
@@ -42,11 +42,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureSqlDatabaseSept08_connectionString": {
-						"value": "[parameters('AzureSqlDatabaseSept08_connectionString')]"
-					},
 					"AzureBlobStorageSept08_connectionString": {
 						"value": "[parameters('AzureBlobStorageSept08_connectionString')]"
+					},
+					"AzureSqlDatabaseSept08_connectionString": {
+						"value": "[parameters('AzureSqlDatabaseSept08_connectionString')]"
 					}
 				}
 			},
